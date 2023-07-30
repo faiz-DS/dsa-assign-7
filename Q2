@@ -1,0 +1,22 @@
+def is_strobogrammatic(num):
+    # Dictionary to store valid strobogrammatic pairs
+    strobogrammatic_pairs = {'0': '0', '1': '1', '6': '9', '8': '8', '9': '6'}
+
+    left, right = 0, len(num) - 1
+
+    while left <= right:
+        if num[left] not in strobogrammatic_pairs or num[right] not in strobogrammatic_pairs:
+            return False
+
+        # Check if the pair of digits are strobogrammatic
+        if num[left] != strobogrammatic_pairs[num[right]]:
+            return False
+
+        left += 1
+        right -= 1
+
+    return True
+
+# Test Example 1
+num = "69"
+print(is_strobogrammatic(num))  # Output: True

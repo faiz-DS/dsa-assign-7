@@ -1,0 +1,26 @@
+def reverse_k_group(s, k):
+    result = ""
+    i = 0
+
+    while i < len(s):
+        # Take the next segment of 2k characters
+        segment = s[i:i + 2 * k]
+
+        # Reverse the first k characters in the segment
+        reversed_segment = segment[:k][::-1]
+
+        # Append the reversed segment to the result
+        result += reversed_segment
+
+        # Append the rest of the segment as is
+        result += segment[k:]
+
+        # Move to the next segment
+        i += 2 * k
+
+    return result
+
+# Test Example 1
+s = "abcdefg"
+k = 2
+print(reverse_k_group(s, k))  # Output: "bacdfeg"

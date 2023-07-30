@@ -1,0 +1,32 @@
+def add_strings(num1, num2):
+    # Initialize pointers to the last digit of each number
+    i, j = len(num1) - 1, len(num2) - 1
+    carry = 0
+    result = []
+
+    # Iterate from the rightmost digits to the leftmost digits
+    while i >= 0 or j >= 0 or carry:
+        # Convert characters to integers or use 0 if we've reached the beginning of the number
+        digit1 = int(num1[i]) if i >= 0 else 0
+        digit2 = int(num2[j]) if j >= 0 else 0
+
+        # Calculate the sum of the current digits and the carry from the previous step
+        current_sum = digit1 + digit2 + carry
+
+        # Update the carry for the next iteration
+        carry = current_sum // 10
+
+        # Append the rightmost digit of the current sum to the result list
+        result.append(str(current_sum % 10))
+
+        # Move the pointers to the left for the next iteration
+        i -= 1
+        j -= 1
+
+    # Reverse the result list and join the digits to form the final sum as a string
+    return ''.join(result[::-1])
+
+# Test Example 1
+num1 = "11"
+num2 = "123"
+print(add_strings(num1, num2))  # Output: "134"

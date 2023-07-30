@@ -1,0 +1,15 @@
+def reverse_words_in_sentence(s):
+    # Split the sentence into words using whitespace as the delimiter
+    words = s.split()
+
+    # Reverse each word in the list
+    reversed_words = [word[::-1] for word in words]
+
+    # Join the reversed words back together with whitespace as the separator
+    reversed_sentence = ' '.join(reversed_words)
+
+    return reversed_sentence
+
+# Test Example 1
+s = "Let's take LeetCode contest"
+print(reverse_words_in_sentence(s))  # Output: "s'teL ekat edoCteeL tsetnoc"
